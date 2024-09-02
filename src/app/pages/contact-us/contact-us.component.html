@@ -1,0 +1,134 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Contact</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home/shop">Home</a></li>
+                        <li class="breadcrumb-item active">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!--section start-->
+<section class=" contact-page section-b-space">
+    <div class="container">
+        <div class="row section-b-space">
+            <div class="col-lg-7 map">
+                <img src="../../../assets/images/contact-us.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="col-lg-5">
+                <div class="contact-right">
+                    <ul>
+                        <li>
+                            <div class="contact-icon">
+                                <img src="../../../assets/images/icon/phone.png" alt="Generic placeholder image">
+                                <h6>Contact Us</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>+49 12345678999</p>
+                                <p>+91 12345678999</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <h6>Address</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>ABC Complex,Near xyz, Bamberg</p>
+                                <p>Bamberg - 123456</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <img src="../../../assets/images/icon/email.png" alt="Generic placeholder image">
+                                <h6>Email Address</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>Support@DinoMall.com</p>
+                                <p>info@DinoMall.com</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <i class="fa fa-fax" aria-hidden="true"></i>
+                                <h6>Fax</h6>
+                            </div>
+                            <div class="media-body">
+                                <p>Support@DinoMall.com</p>
+                                <p>info@DinoMall.com</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div>
+            <form class="theme-form" [formGroup]="formGroup" (ngSubmit)="postData(formGroup)">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="name">First Name</label>
+                        <input type="text" class="form-control" formControlName="FirstName"
+                            placeholder="Enter Your First name"
+                            [ngClass]="{ 'is-invalid': submitted && ctrl['FirstName'].errors }">
+                        <div *ngIf="submitted && ctrl['FirstName'].errors" class="invalid-feedback">
+                            <div *ngIf="ctrl['FirstName'].errors['required']">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">Last Name</label>
+                        <input type="text" class="form-control" formControlName="LastName"
+                            placeholder="Enter Your Last Name"
+                            [ngClass]="{ 'is-invalid': submitted && ctrl['FirstName'].errors }">
+                        <div *ngIf="submitted && ctrl['LastName'].errors" class="invalid-feedback">
+                            <div *ngIf="ctrl['LastName'].errors['required']">Last Name is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="review">Phone number</label>
+                        <input type="text" class="form-control" formControlName="MobileNo"
+                            placeholder="Enter your number"
+                            [ngClass]="{ 'is-invalid': submitted && ctrl['MobileNo'].errors }">
+                        <div *ngIf="submitted && ctrl['MobileNo'].errors" class="invalid-feedback">
+                            <div *ngIf="ctrl['MobileNo'].errors['required']">Mobile No. is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" formControlName="EmailId" placeholder="Enter your Email"
+                            [ngClass]="{ 'is-invalid': submitted && ctrl['EmailId'].errors }">
+                        <div *ngIf="submitted && ctrl['EmailId'].errors" class="invalid-feedback">
+                            <div *ngIf="ctrl['EmailId'].errors['required']">Email-Id is required</div>
+                            <div *ngIf="ctrl['EmailId'].errors['email']">Email-Id must be a valid email address
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="review">Write Your Message</label>
+                    <textarea class="form-control" placeholder="Write Your Message" formControlName="Message" rows="6"
+                        [ngClass]="{ 'is-invalid': submitted && ctrl['Message'].errors }"></textarea>
+                    <div *ngIf="submitted && ctrl['Message'].errors" class="invalid-feedback">
+                        <div *ngIf="ctrl['Message'].errors['required']">Message is required</div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-solid" type="submit">Send Your Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!--Section ends-->

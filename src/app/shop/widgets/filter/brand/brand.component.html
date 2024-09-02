@@ -1,0 +1,12 @@
+<div class="collection-collapse-block open">
+    <h3 class="collapse-block-title" id="brandToggleId">brand</h3>
+    <div class="collection-collapse-block-content" id="brandToggle">
+        <div class="collection-brand-filter">
+            <div class="custom-control custom-checkbox collection-filter-checkbox" *ngFor="let data of brands">
+                <input type="checkbox" class="custom-control-input" [id]="data.brand" [value]="data.brand"
+                    (change)="selectedBrands($event)">
+                <label class="custom-control-label" style="padding-left: 4px;" for={{data.brand}}>{{data.brand}}</label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+<!-- breadcrumb start -->
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Compare</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"> <a routerLink="/home/shop">Home</a> </li>
+                        <li class="breadcrumb-item active" aria-current="page">Compare</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- breadcrumb End -->
+<!-- section start -->
+<section class="compare-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="compare-page">
+                    <div class="col-sm-12 empty-cart-cls text-center" *ngIf="!compareItems.length">
+                        <img src="../../../assets/images/empty-compare.png" class="img-fluid mb-4">
+                        <h3><strong>Compare List is Empty</strong></h3><br>
+                        <h4>Add some items to compare.</h4><br>
+                    </div>
+                    <div class="table-wrapper table-responsive" *ngIf="compareItems.length">
+                        <table class="table">
+                            <thead>
+                                <tr class="th-compare">
+                                    <td>Action</td>
+                                    <th class="item-row" *ngFor="let item of compareItems">
+                                        <button type="button" (click)="removeItem(item)"
+                                            class="remove-compare fa fa-remove"> Remove
+                                        </button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-compare">
+                                <!-- Product Name -->
+                                <tr>
+                                    <th class="product-name">Product Name</th>
+                                    <td class="grid-link__title" *ngFor="let item of compareItems">
+                                        {{item.name}}</td>
+                                </tr>
+                                <!-- Product Image -->
+                                <tr>
+                                    <th class="product-name ">Product Image</th>
+                                    <td class="item-row" *ngFor="let item of compareItems">
+                                        <img width="185" class="featured-image" [src]="url+item.pictures[0]">
+                                        <div class="product-price product_price">
+                                            <strong>On Sale :</strong>
+                                            <span>
+                                                {{item.salePrice | currency : _productService?.currency :'symbol'}}
+                                            </span>
+                                        </div>
+                                        <form class="variants clearfix">
+                                            <button title="Add to Cart" (click)="addToCart(item)"
+                                                class="add-to-cart btn btn-solid">Add to
+                                                Cart</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <!-- Product Description -->
+                                <tr>
+                                    <th class="product-name">Product Description</th>
+                                    <td class="item-row" *ngFor="let item of compareItems">
+                                        <p class="description-compare"> {{item.shortDetails}} </p>
+                                    </td>
+                                </tr>
+                                <!-- Product Availability -->
+                                <tr>
+                                    <th class="product-name"> Availability </th>
+                                    <td class="available-stock" *ngFor="let item of compareItems">
+                                        <p> {{item.stock}} </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section ends -->

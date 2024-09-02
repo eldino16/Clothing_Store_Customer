@@ -1,0 +1,109 @@
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>create account</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a routerLink="/home/shop">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">create account</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>create account</h3>
+                <div class="theme-card">
+                    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)" class="needs-validation"
+                        novalidate="">
+                        <div class="form-group row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" for="validationCustom0"><span>*</span>First
+                                    Name</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="text" formControlName="FirstName"
+                                        [ngClass]="{ 'is-invalid': submitted && ctrl['FirstName'].errors }">
+                                    <div *ngIf="submitted && ctrl['FirstName'].errors" class="invalid-feedback">
+                                        <div *ngIf="ctrl['FirstName'].errors['required']">First Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" for="validationCustom1"><span>*</span> Last
+                                    Name</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="text" formControlName="LastName"
+                                        [ngClass]="{ 'is-invalid': submitted && ctrl['LastName'].errors }">
+                                    <div *ngIf="submitted && ctrl['LastName'].errors" class="invalid-feedback">
+                                        <div *ngIf="ctrl['LastName'].errors['required']">Last Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label"
+                                    for="validationCustom2"><span>*</span>Email</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control col-xl-8 col-md-7" type="email" formControlName="EmailId"
+                                        [ngClass]="{ 'is-invalid': submitted && ctrl['EmailId'].errors }">
+                                    <div *ngIf="submitted && ctrl['EmailId'].errors" class="invalid-feedback">
+                                        <div *ngIf="ctrl['EmailId'].errors['required']">EmailId is required</div>
+                                        <div *ngIf="ctrl['EmailId'].errors['email']">EmailId must be a valid email
+                                            address
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label"
+                                    for="validationCustom3"><span>*</span>Password</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="password" formControlName="password"
+                                        [ngClass]="{ 'is-invalid': submitted && ctrl['password'].errors }">
+                                    <div class="" *ngIf="submitted && ctrl['password'].errors" class="invalid-feedback">
+                                        <div *ngIf="ctrl['password'].errors['required']">Password is required</div>
+                                        <div *ngIf="ctrl['password'].errors['minlength']">Password must be at least 6
+                                            characters</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="mb-3 row">
+                                <label class="col-sm-2 col-form-label" for="validationCustom4"><span>*</span>Confirm
+                                    Password</label>
+                                <div class="col-sm-7">
+                                    <input class="form-control" type="password" formControlName="confirmPassword"
+                                        [ngClass]="{ 'is-invalid': submitted && ctrl['confirmPassword'].errors }">
+                                    <div *ngIf="submitted && ctrl['confirmPassword'].errors" class="invalid-feedback">
+                                        <div *ngIf="ctrl['confirmPassword'].errors['required']">Confirm Password is
+                                            required</div>
+                                        <div *ngIf="ctrl['confirmPassword'].errors['mustMatch']">Passwords must match
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-button">
+                            <button class="btn btn-solid" type="submit">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

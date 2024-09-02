@@ -1,0 +1,26 @@
+<div class="theme-card" *ngIf="sliderProducts">
+    <h5 class="title-border">New Product</h5>
+    <ngx-slick-carousel class="offer-slider" #slickModal="slick-carousel">
+        <div ngxSlickItem *ngFor="let product of sliderProducts; let i = index">
+            <div class="row col-sm-12" *ngFor="let item of sliderProducts[i]">
+                <div class="col-sm-6">
+                    <a [routerLink]="['/home/product/details', item.id]">
+                        <img [src]="url+item.pictures[0]" class="img-fluid" alt="image">
+                    </a>
+                </div>
+                <div class="media-body align-self-center col-sm-6">
+                    <bar-rating [rate]="4" [max]="5"></bar-rating><br>
+                    <a [routerLink]="['/home/product/details', item.id]">
+                        <h6>{{item.name}}</h6>
+                    </a>
+                    <h4>
+                        {{item.price | currency : _productService?.currency : 'symbol'}}
+                        <del>
+                            <span> {{item.salePrice | currency : _productService?.currency : 'symbol'}}</span>
+                        </del>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+</div>
